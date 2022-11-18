@@ -16,8 +16,8 @@ function Header() {
             <p>Middle</p>
         </div>
         <div className='flex items-center justify-end p-2 text-gray-500 border border-solid rounded-full border-gray-300 m-3'>
-            <UserCircleIcon className='h-10 hover:text-gray-600 hover:cursor-pointer active:scale-90 transition-all duration-200' />
             <Bars3Icon className='h-10 hover:text-gray-600 hover:cursor-pointer active:scale-90 transition-all duration-200' />
+            <UserCircleIcon className='h-10 hover:text-gray-600 hover:cursor-pointer active:scale-90 transition-all duration-200' />
         </div>
     </div>
   )

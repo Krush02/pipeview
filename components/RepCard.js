@@ -31,7 +31,7 @@ function RepCard() {
         progress: Math.floor(Math.random() * 100),},
     ]
 
-  return ( {reps.map((rep) => (
+  return (
 
     <div className='flex flex-col items-center border-0 rounded-lg bg-zinc-200 md:w-1/3 xl:w-2/5 m-3 p-10 shadow-md'>
         <div className='text-lg font-bold text-zinc-800'>{reps.name}</div>
@@ -64,7 +64,6 @@ function RepCard() {
             </div>
         </div>
     </div>
-  )) }
-    )
+  )}
 
 export default RepCard

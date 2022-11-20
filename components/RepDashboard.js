@@ -14,8 +14,6 @@ function RepDashboard() {
         </div>
         <div className='flex flex-col md:flex-row w-full'>
             <RepCard />
-            <RepCard />
-            <RepCard />
         </div>
     </div>
   )

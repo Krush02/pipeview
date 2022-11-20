@@ -3,37 +3,37 @@ import { UserCircleIcon } from '@heroicons/react/24/solid'
 import { Line, Circle } from 'rc-progress'
 
 
-function RepCard() {
-
-    const ARR = (min, max) => {
-        return (Math.floor(Math.random() * (max - min + 1)) + min);
-    }
+export default function RepCard() {
 
     let qtd;
     let ytd;
-    let goal;
-    let progress;
-
+    let goal = 400000;
+    
     const reps = [
         {
         name: 'Jason',
-        qtd: ARR(50140, 231270),
-        ytd: ARR(1501140, 2701450),
-        goal: ARR(2000000, 4000000),
-        progress: null,},
+        qtd: 233014,
+        ytd: 695125,
+        goal: goal,
+        progress: null,
+        },
         {
         name: 'Maurizio',
-        qtd: ARR(15140, 52270),
-        ytd: ARR(901140, 1701450),
-        goal: ARR(2000000, 4000000),
-        progress: 65,},
+        qtd: 73548,
+        ytd: 365475,
+        goal: goal,
+        progress: null,
+        },
         {
         name: 'Svitlana',
-        qtd: ARR(15140, 62270),
-        ytd: ARR(1101140, 1701450),
-        goal: ARR(2000000, 4000000),
-        progress: 50,},
+        qtd: 91541,
+        ytd: 91541,
+        goal: goal,
+        progress: null,
+        },
     ]
+
+    let progress = reps.qtd/reps.goal * 100;
 
   return reps.map((rep) => (
         <><div className='flex flex-col items-center border-0 rounded-lg bg-zinc-200 md:w-1/3 xl:w-2/5 m-3 p-10 shadow-md'>
@@ -67,6 +67,3 @@ function RepCard() {
         </div></>
     ))
 }
-
-
-export default RepCard

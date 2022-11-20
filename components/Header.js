@@ -13,7 +13,7 @@ function Header() {
   };
 
   return (
-    <div className='flex justify-between h-20 bg-white border-b-2 border-gray-200 shadow-sm top-0 sticky z-50'>
+    <div className='flex justify-between h-20 bg-white border-b-2 border-zinc-300 shadow-sm top-0 sticky z-50'>
         <div className='flex items-center justify-end p-2 text-zinc-500 border border-solid rounded-full border-gray-300 m-3'>
             <UserCircleIcon onClick={sessionHandler} className='h-10 hover:text-zinc-600 hover:cursor-pointer active:scale-90 transition-all duration-200' />
             <Bars3Icon className='h-10 hover:text-zinc-600 hover:cursor-pointer active:scale-90 transition-all duration-200' />

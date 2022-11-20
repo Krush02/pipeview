@@ -35,7 +35,7 @@ export default function RepCard() {
     })
 
   return reps.map((rep) => (
-        <><div className='flex flex-col items-center border-0 rounded-lg bg-zinc-200 md:w-1/3 xl:w-2/5 m-3 p-10 shadow-md'>
+        <><div className='flex flex-col items-center border-0 rounded-xl bg-zinc-200 md:w-1/3 xl:w-2/5 m-3 p-10 shadow-md hover:cursor-pointer hover:scale-105 active:scale-100 transition-all duration-150' onClick={null}>
           <div className='text-lg font-bold text-zinc-800'>{rep.name}</div>
         
             <UserCircleIcon className='h-20 text-zinc-600' /><div className='flex flex-col'>

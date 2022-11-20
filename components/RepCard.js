@@ -8,32 +8,31 @@ export default function RepCard() {
     let qtd;
     let ytd;
     let goal = 400000;
-    
+
     const reps = [
         {
         name: 'Jason',
         qtd: 233014,
         ytd: 695125,
         goal: goal,
-        progress: null,
         },
         {
         name: 'Maurizio',
         qtd: 73548,
         ytd: 365475,
         goal: goal,
-        progress: null,
         },
         {
         name: 'Svitlana',
         qtd: 91541,
         ytd: 91541,
         goal: goal,
-        progress: null,
         },
     ]
 
-    let progress = reps.qtd/reps.goal * 100;
+    let progress = reps.map((rep) => {
+        return rep.progress = Math.round((rep.qtd / rep.goal) * 100);
+    })
 
   return reps.map((rep) => (
         <><div className='flex flex-col items-center border-0 rounded-lg bg-zinc-200 md:w-1/3 xl:w-2/5 m-3 p-10 shadow-md'>
@@ -61,7 +60,7 @@ export default function RepCard() {
               </p>
               <div className=''>
                   <Circle className='py-2' percent={rep.progress} strokeWidth='10' strokeColor={`royalBlue`} trailColor='#B9B9B9' trailWidth='10' />
-                  <p className='relative px-2 -top-20 -mt-3 ml-14 text-zinc-600 font-bold'>{rep.progress}%</p>
+                  <p className='text-zinc-600 font-bold'>{rep.progress}%</p>
               </div>
           </div>
         </div></>

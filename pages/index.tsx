@@ -13,16 +13,8 @@ const Home: NextPage = () => {
         <link rel="icon" href="/pipeview.png" />
       </Head>
       <Header />
-    <div className="max-w-7xl min-h-screen mx-auto">
-
+    <div className="max-w-7xl min-h-screen mx-auto p-5">
       <Dashboard />
-
-      <div className="flex flex-col items-center justify-center py-2">
-        <main className="flex flex-col items-center justify-center flex-1 px-20 text-center">
-    
-        </main>
-
-      </div>
     </div>
     <footer className="bg-white flex justify-center border-t">
         <Image className="py-5" src="/pipeview-logo1.png" alt="Pipeview Logo" width={100} height={100} />

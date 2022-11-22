@@ -1,9 +1,10 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import Image from 'next/image'
 import Header from '../components/Header'
+import Footer from '../components/Footer'
 import Dashboard from '../components/Dashboard'
 import { getSession, GetSessionParams } from 'next-auth/react'
+
 
 const Home: NextPage = () => {
   return (
@@ -16,9 +17,7 @@ const Home: NextPage = () => {
     <div className="max-w-7xl min-h-screen mx-auto p-5">
       <Dashboard />
     </div>
-    <footer className="bg-white flex justify-center border-t">
-        <Image className="py-5" src="/pipeview-logo1.png" alt="Pipeview Logo" width={100} height={100} />
-    </footer>
+    <Footer />
   </div>
   )
 }

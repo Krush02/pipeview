@@ -7,6 +7,7 @@
   },
   "dependencies": {
     "@heroicons/react": "^2.0.13",
+    "@hubspot/api-client": "^8.0.0",
     "@tremor/react": "^1.1.4",
     "firebase": "^9.14.0",
     "next": "latest",
@@ -14,7 +15,8 @@
     "rc-progress": "^3.4.1",
     "react": "18.2.0",
     "react-chartjs-2": "^5.0.1",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "react-remove-scroll-bar": "^2.3.4"
   },
   "devDependencies": {
     "@types/node": "18.11.3",

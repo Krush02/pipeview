@@ -1,13 +1,14 @@
 import NextAuth from "next-auth"
 import HubspotProvider from "next-auth/providers/hubspot";
+import hubspotApi, { LOGIN_URL } from "../../../lib/hubspot";
 
 async function refreshAccessToken(token) {
   try {
 
-      spotifyApi.setAccessToken(token.accessToken);
-      spotifyApi.setRefreshToken(token.refreshToken);
+      hubspotApi.setAccessToken(token.accessToken);
+      hubspotApi.setRefreshToken(token.refreshToken);
 
-      const { body: refreshedToken } = await spotifyApi.refreshAccessToken();
+      const { body: refreshedToken } = await hubspotApi.refreshAccessToken();
       console.log("Refreshed token: ", refreshedToken);
 
       return {

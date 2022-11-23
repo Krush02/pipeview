@@ -1,6 +1,6 @@
 
 import React from 'react'
-import { getProviders, signIn } from 'next-auth/react'
+import { getSession, getProviders, signIn } from 'next-auth/react'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import Head from 'next/head'
@@ -34,12 +34,14 @@ function Login({ providers }) {
 
 export default Login
 
-export async function getServerSideProps() {
+export async function getServerSideProps(context) {
+  const session = await getSession(context)
   const providers = await getProviders()
 
   return {
-    props: {
-        providers,
+    props: { 
+      session,
+      providers,
     },
-};
+  }
 }

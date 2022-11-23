@@ -11,17 +11,18 @@ import {
     Legend,
     List,
     ListItem,
+    DeltaType,
 } from '@tremor/react';
 
 // ================== DONUT CARD DATA ===================== //
 const regions = [
-    { key: 'all', name: 'All Regions' },
-    { key: 'us', name: 'United States' },
-    { key: 'europe', name: 'Europe' },
-    { key: 'asia', name: 'Asia' },
+    { key: 'all', name: 'All Deal Types' },
+    { key: 'os', name: 'Jurny OS' },
+    { key: 'mos', name: 'Jurny MOS' },
+    { key: 'pro', name: 'Jurny MOS Pro' },
 ];
 
-interface CityData {
+interface DealData {
     name: string,
     region: string,
     sales: number,
@@ -29,72 +30,72 @@ interface CityData {
     deltaType: DeltaType,
 }
 
-const cities: CityData[] = [
+const deals: DealData[] = [
     {
-        name: 'New York',
-        region: 'us',
-        sales: 984888,
+        name: 'Shoreham',
+        region: 'pro',
+        sales: 98488,
         delta: '6.1%',
         deltaType: 'increase',
     },
     {
-        name: 'London',
-        region: 'europe',
-        sales: 456700,
+        name: 'Casa de la O',
+        region: 'pro',
+        sales: 45670,
         delta: '1.2%',
         deltaType: 'moderateDecrease',
     },
     {
-        name: 'San Francisco',
-        region: 'us',
-        sales: 240000,
+        name: 'Tahoe',
+        region: 'mos',
+        sales: 24000,
         delta: '2.3%',
         deltaType: 'moderateIncrease',
     },
     {
-        name: 'Hong Kong',
-        region: 'asia',
-        sales: 390800,
+        name: 'OVSI',
+        region: 'pro',
+        sales: 39080,
         delta: '0.5%',
         deltaType: 'moderateDecrease',
     },
     {
-        name: 'Singapore',
-        region: 'asia',
-        sales: 190800,
+        name: 'STR Accommodations',
+        region: 'mos',
+        sales: 19080,
         delta: '1.8%',
         deltaType: 'moderateIncrease',
     },
     {
-        name: 'Zurich',
-        region: 'europe',
-        sales: 164400,
+        name: 'Harmony Heart',
+        region: 'os',
+        sales: 16440,
         delta: '3.4%',
         deltaType: 'decrease',
     },
     {
-        name: 'Vienna',
-        region: 'europe',
-        sales: 139800,
+        name: 'Sunapee VR',
+        region: 'mos',
+        sales: 13980,
         delta: '3.1%',
         deltaType: 'moderateIncrease',
     },
 ];
 
-const filterByRegion = (region: string, data: CityData[]) => (
+const filterByRegion = (region: string, data: DealData[]) => (
     region === 'all'
         ? data
-        : data.filter((city) => city.region === region)
+        : data.filter((deal) => deal.region === region)
 );
 
 const valueFormatter = (number: number) => `$ ${Intl.NumberFormat('us').format(number).toString()}`;
 
 function Sales() {
-  const [filteredData, setFilteredData] = useState(cities);
+  const [filteredData, setFilteredData] = useState(deals);
   const [selectedRegion, setSelectedRegion] = useState('all');
   
   useEffect(() => {
-    const data = cities;
+    const data = deals;
     setFilteredData(filterByRegion(selectedRegion, data));
   }, [selectedRegion]);
 
@@ -104,7 +105,7 @@ function Sales() {
             <Title>Sales</Title>
             <Dropdown
                 handleSelect={ (value) => setSelectedRegion(value) }
-                placeholder="Region Selection"
+                placeholder="Deal Type"
             >
                 { regions.map((region) => (
                     <DropdownItem
@@ -115,7 +116,7 @@ function Sales() {
                 )) }
             </Dropdown>
         </Flex>
-        <Legend categories={ filteredData.map((city) => city.name) } marginTop="mt-6" />
+        <Legend categories={ filteredData.map((deal) => deal.name) } marginTop="mt-6" />
         <DonutChart
             data={ filteredData }
             category="sales"
@@ -124,12 +125,12 @@ function Sales() {
             marginTop="mt-6"
         />
         <List marginTop="mt-6">
-            { filteredData.map((city) => (
-                <ListItem key={ city.name }>
-                    { city.name }
+            { filteredData.map((deal) => (
+                <ListItem key={ deal.name }>
+                    { deal.name }
                     <BadgeDelta
-                        deltaType={ city.deltaType }
-                        text={ city.delta }
+                        deltaType={ deal.deltaType }
+                        text={ deal.delta }
                         size="xs"
                     />
                 </ListItem>

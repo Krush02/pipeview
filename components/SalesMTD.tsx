@@ -20,51 +20,51 @@ import {
 const sales = [
     {
         Month: 'Jan 21',
-        Sales: 2890,
+        Sales: 68090,
     },
     {
         Month: 'Feb 21',
-        Sales: 1890,
+        Sales: 28090,
     },
     {
         Month: 'Mar 21',
-        Sales: 2190,
+        Sales: 41090,
     },
     {
         Month: 'Apr 21',
-        Sales: 3470,
+        Sales: 68470,
     },
     {
         Month: 'May 21',
-        Sales: 2170,
+        Sales: 59170,
     },
     {
         Month: 'Jun 21',
-        Sales: 3170,
+        Sales: 31970,
     },
     {
         Month: 'Jul 21',
-        Sales: 3490,
+        Sales: 31490,
     },
     {
         Month: 'Aug 21',
-        Sales: 2680,
+        Sales: 46080,
     },
     {
         Month: 'Sep 21',
-        Sales: 1290,
+        Sales: 70290,
     },
     {
         Month: 'Oct 21',
-        Sales: 1010,
+        Sales: 155010,
     },
     {
         Month: 'Nov 21',
-        Sales: 2350,
+        Sales: 185350,
     },
     {
         Month: 'Dec 21',
-        Sales: 3350,
+        Sales: 123001,
     },
 ];
 
@@ -88,19 +88,19 @@ const products: {[key: string]: any} = [
         location: 'A',
     },
     {
-        title: 'Product Z',
+        title: 'Jurny Custom',
         percentageValue: 82,
         metric: '$ 108,799',
         location: 'B',
     },
     {
-        title: 'Product E',
+        title: 'Guest Experience',
         percentageValue: 10,
         metric: '$ 13,268',
         location: 'B',
     },
     {
-        title: 'Product N',
+        title: 'Jurny Locks + Hubs',
         percentageValue: 8,
         metric: '$ 10,614',
         location: 'B',
@@ -135,8 +135,8 @@ function SalesMTD() {
             marginTop="mt-10"
         />
         <TabList marginTop="mt-4" defaultValue="A" handleSelect={ (value) => setSelectedLocation(value) }>
-            <Tab value="A" text="Location A" />
-            <Tab value="B" text="Location B" />
+            <Tab value="A" text="Main Product Line" />
+            <Tab value="B" text="Additional Sales" />
         </TabList>
         { products.filter((item: any) => item.location === selectedLocation).map((item: any) => (
             <Block key={ item.title } marginTop="mt-4" spaceY="space-y-2">

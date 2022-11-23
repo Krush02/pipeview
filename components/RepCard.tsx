@@ -18,6 +18,7 @@ const target = 400000;
 const reps = [
     {
         name: 'Jason',
+        position: "Sales Director",
         metric: (232699).toLocaleString("en-US", {style: "currency", currency: "USD"}),
         target: target.toLocaleString("en-US", {style: "currency", currency: "USD"}),
         percentToGoal: 55,
@@ -38,6 +39,7 @@ const reps = [
     },
     {
         name: 'Maurizio',
+        position: "Account Executive",
         metric: (65564).toLocaleString("en-US", {style: "currency", currency: "USD"}),
         percentToGoal: 16.5,
         target: target.toLocaleString("en-US", {style: "currency", currency: "USD"}),
@@ -58,6 +60,7 @@ const reps = [
     },
     {
         name: 'Svitlana',
+        position: "Account Executive",
         metric: (81072).toLocaleString("en-US", {style: "currency", currency: "USD"}),
         percentToGoal: 20.2,
         target: target.toLocaleString("en-US", {style: "currency", currency: "USD"}),
@@ -89,6 +92,7 @@ function RepCard() {
                 <div className='hover:cursor-pointer hover:scale-105 active:scale-100 transition-all duration-100'>
                     <Card key={ rep.name } maxWidth="max-w-lg">
                         <Title>{ rep.name }</Title>
+                        <Text>{ rep.position }</Text>
                         <Metric>{ rep.metric }</Metric>
                         <Flex marginTop="mt-4">
                             <Text truncate={ true }>{ `${rep.percentToGoal}% (${rep.metric})` }</Text>

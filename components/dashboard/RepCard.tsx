@@ -81,6 +81,10 @@ const reps = [
     },
 ];
 
+const repClickHandler = (rep: any) => {
+    console.log(rep.name);
+}
+
 const dataFormatter = (number: number) =>
 `${Intl.NumberFormat("us").format(number).toString()}%`;
 
@@ -89,7 +93,7 @@ function RepCard() {
     <Col numColSpanLg={ 2 }>
         <div className='space-y-5'>
             { reps.map((rep) => (
-                <div className='hover:cursor-pointer hover:scale-105 active:scale-100 transition-all duration-100'>
+                <div onClick={repClickHandler} className='hover:cursor-pointer hover:scale-105 active:scale-100 transition-all duration-100'>
                     <Card key={ rep.name } maxWidth="max-w-lg">
                         <Title>{ rep.name }</Title>
                         <Text>{ rep.position }</Text>

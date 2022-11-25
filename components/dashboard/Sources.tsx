@@ -14,10 +14,9 @@ import {
 // ================== SALES BY SOURCE ===================== //
 const categories = [
     { key: 'all', name: 'All' },
-    { key: 'socials', name: 'Socials' },
-    { key: 'blogs', name: 'Blogs' },
-    { key: 'devTools', name: 'Dev Tools' },
-    { key: 'organic', name: 'Organic' },
+    { key: 'capterra', name: 'Capterra' },
+    { key: 'softAdv', name: 'Software Advice' },
+    { key: 'organic', name: 'Website' },
 ];
 
 interface VisitsData {
@@ -28,44 +27,19 @@ interface VisitsData {
 
 const visits: VisitsData[] = [
     {
-        name: 'Google',
-        value: 456,
+        name: 'Website',
+        value: 96456,
         category: 'organic',
     },
     {
-        name: 'GitHub',
-        value: 271,
-        category: 'devTools',
+        name: 'Software Advice',
+        value: 79271,
+        category: 'softAdv',
     },
     {
-        name: 'Twitter',
-        value: 191,
-        category: 'socials',
-    },
-    {
-        name: 'Reddit',
-        value: 185,
-        category: 'socials',
-    },
-    {
-        name: 'NPM',
-        value: 179,
-        category: 'devTools',
-    },
-    {
-        name: 'Youtube',
-        value: 91,
-        category: 'socials',
-    },
-    {
-        name: 'Medium',
-        value: 42,
-        category: 'blogs',
-    },
-    {
-        name: 'DEV.to',
-        value: 21,
-        category: 'blogs',
+        name: 'Capterra',
+        value: 41191,
+        category: 'capterra',
     },
 ];
 
@@ -74,6 +48,8 @@ const filterByCategory = (category: string, data: VisitsData[]) => (
         ? data
         : data.filter((item) => item.category === category)
 );
+
+const currencyFormatter = (value: number) => `${value.toLocaleString("en-US", {style: "currency", currency: "USD"})}`;
 
 
 function Sources() {
@@ -88,7 +64,7 @@ function Sources() {
   return (
     <Card maxWidth="max-w-lg">
         <Flex spaceX="space-x-8">
-            <Title>Sources</Title>
+            <Title>Deal Sources</Title>
             <Dropdown
                 handleSelect={ (value) => setSelectedCategory(value) }
                 placeholder="Source Selection"
@@ -105,12 +81,13 @@ function Sources() {
         </Flex>
         <Flex marginTop="mt-8">
             <Text><Bold>Source</Bold></Text>
-            <Text><Bold>Visits</Bold></Text>
+            <Text><Bold>ARR $</Bold></Text>
         </Flex>
         <BarList
             data={ filteredVisitData }
             showAnimation={ false }
             marginTop="mt-4"
+            valueFormatter={ currencyFormatter }
         />
     </Card>  )
 }

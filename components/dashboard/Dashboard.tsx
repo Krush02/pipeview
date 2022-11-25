@@ -4,8 +4,8 @@ import {
     Tab,
     TabList,
 } from '@tremor/react';
-import Month from '../components/Month';
-import Qtr from '../components/Qtr';
+import Month from './Month';
+import Qtr from './Qtr';
 import Year from './Year';
 import { useState } from 'react';
 

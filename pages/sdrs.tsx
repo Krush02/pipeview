@@ -1,4 +1,5 @@
 import React from 'react'
+import Head from 'next/head'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import { getSession, GetSessionParams } from 'next-auth/react'
@@ -15,6 +16,11 @@ import { useState } from 'react';
 export default function Example() {
     const [selectedView, setSelectedView] = useState(1);
     return (
+        <>
+        <Head>
+            <title>Pipeview | SDR Reports</title>
+            <link rel="icon" href="/pipeview.png" />
+        </Head>
         <main className='bg-zinc-100'>
             <Header />
             <div className="max-w-7xl min-h-screen mx-auto p-5 ">
@@ -43,6 +49,7 @@ export default function Example() {
             </div>
             <Footer />
         </main>
+        </>
     );
 }
 

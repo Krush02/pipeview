@@ -1,5 +1,33 @@
 import NextAuth from "next-auth"
+import hubspotApi from "../../../lib/hubspot";
 import HubspotProvider from "next-auth/providers/hubspot";
+
+
+async function refreshAccessToken(token) {
+  try {
+
+      hubspotApi.setAccessToken(token.accessToken);
+      hubspotApi.setRefreshToken(token.refreshToken);
+
+      const { body: refreshedToken } = await hubspotApi.refreshAccessToken();
+      console.log("Refreshed token: ", refreshedToken);
+
+      return {
+          ...token,
+          accessToken: refreshedToken.access_token,
+          accessTokenExpires: Date.now + refreshedToken.expires_in * 1000,
+          refreshToken: refreshedToken.refresh_token ?? token.refreshToken,
+      };
+
+  } catch (error) {
+      console.error(error)
+
+      return {
+          ...token,
+          error: 'RefreshAccessTokenError',
+      };
+  }
+}
 
 export const authOptions = {
   providers: [

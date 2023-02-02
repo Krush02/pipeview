@@ -9,7 +9,6 @@
     "@heroicons/react": "^2.0.13",
     "@hubspot/api-client": "^8.0.0",
     "@tremor/react": "^1.1.4",
-    "firebase": "^9.14.0",
     "next": "latest",
     "next-auth": "^4.17.0",
     "rc-progress": "^3.4.1",
